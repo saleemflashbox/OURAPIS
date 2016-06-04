@@ -6,7 +6,7 @@
   ],
   "description": "Sliders and graphs Apis for NEC projects",
   "semver": "1.0.0",
-  "version": "1.0.0",
+  "git": "1.0.0",
   "main": "",
   "license": "MIT",
   "ignore": [
