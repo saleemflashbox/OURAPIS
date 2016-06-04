@@ -5,7 +5,7 @@
     "saleemflashbox <saleem@flashbox.in>"
   ],
   "description": "Sliders and graphs Apis for NEC projects",
-  "semver": "1.0.0",
+  "svn": "1.0.0",
   "git": "1.0.0",
   "main": "",
   "license": "MIT",
