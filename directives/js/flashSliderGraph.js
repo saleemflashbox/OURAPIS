@@ -421,6 +421,9 @@
         if(!scope.prefixY){
             scope.prefixY="";
         }
+        if(!scope.suffixY){
+            scope.suffixY="";
+        }
         if(!scope.seriesWidth){
             scope.seriesWidth=2;
         }
@@ -435,6 +438,19 @@
         }
         if(!scope.gridWidthY){
             scope.gridWidthY=1;
+        }
+        if(scope.noGrid){
+            scope.gridWidthX=0;
+            scope.gridWidthY=0;
+        }
+        if(!scope.tickWidth){
+            scope.tickWidth=1;
+        }
+        if(!scope.baseLineX){
+            scope.baseLineX=1;
+        }
+        if(!scope.baseLineY){
+            scope.baseLineY=1;
         }
         if(!scope.gridLineColor){
             scope.gridLineColor='#dddddd';
@@ -539,9 +555,9 @@
                     useHTML: true
                 },
                 tickColor:scope.gridLineColor,
-                tickWidth: 1,
+                tickWidth: scope.tickWidth,
                 lineColor: scope.gridLineColor,
-                lineWidth: 1,
+                lineWidth: scope.baseLineX,
                 plotBands: [{ // mark the weekend
                     color: '#f6f6f6',
                     from: currentGraphColumn-0.5,
@@ -564,13 +580,13 @@
                         fontSize: scope.labelSize+'px'
                     },
                     formatter: function () {
-                        return this.value + scope.prefixY;
+                        return scope.prefixY+ this.value + scope.suffixY ;
                     },
                     enabled: scope.labelY,
                     useHTML: true
                 },
                 lineColor: scope.gridLineColor,
-                lineWidth: 1
+                lineWidth: scope.baseLineY
             },
             tooltip: {
                 shared: true,
@@ -648,13 +664,18 @@
                 legendBorColor:"@",
                 legendDistance:"@",
                 legendWidth:"@",
+                noGrid:"@",
                 gridWidthX:"@",
                 gridWidthY:"@",
                 gridLineColor:"@",
                 seriesWidth:"@",
                 seriesFillColor:"@",
                 seriesMarker:"@",
+                tickWidth:"@",
+                baseLineX:"@",
+                baseLineY:"@",
                 prefixY:"@",
+                suffixY:"@",
                 colors: "=",
                 labelX:"=",
                 labelY:"=",

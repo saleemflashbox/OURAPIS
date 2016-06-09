@@ -19,6 +19,9 @@
         if(!scope.prefixY){
             scope.prefixY="";
         }
+        if(!scope.suffixY){
+            scope.suffixY="";
+        }
         if(!scope.seriesWidth){
             scope.seriesWidth=2;
         }
@@ -33,6 +36,16 @@
         }
         if(!scope.gridWidthY){
             scope.gridWidthY=1;
+        }
+        if(scope.noGrid){
+            scope.gridWidthX=0;
+            scope.gridWidthY=0;
+        }
+        if(!scope.tickWidth){
+            scope.tickWidth=1;
+        }
+        if(!scope.baseLineX){
+            scope.baseLineX=1;
         }
         if(!scope.gridLineColor){
             scope.gridLineColor='#dddddd';
@@ -82,7 +95,6 @@
         }
 
 
-
         $(element).find(".flashGraph").highcharts({
             chart: {
                 type: scope.type,
@@ -114,7 +126,7 @@
             title: {
                 text: ''
             },
-        
+
             xAxis: {
                 categories: scope.x,
                 title: {
@@ -133,9 +145,9 @@
                     enabled: scope.labelX
                 },
                 tickColor:scope.gridLineColor,
-                tickWidth: 1,
+                tickWidth: scope.tickWidth,
                 lineColor: scope.gridLineColor,
-                lineWidth: 1
+                lineWidth: scope.baseLineX
             },
             yAxis: {
                 title: {
@@ -152,7 +164,7 @@
                         fontSize: scope.labelSize+'px'
                     },
                     formatter: function () {
-                        return this.value + scope.prefixY;
+                        return scope.prefixY+ this.value + scope.suffixY ;
                     },
                     enabled: scope.labelY
                 }
@@ -194,7 +206,7 @@
                     borderRadius: scope.barRadius,
                     pointWidth: scope.barWidth
                 }
-            
+
             },
             series: scope.y,
             colors: scope.colors
@@ -218,13 +230,18 @@
                 legendBorColor:"@",
                 legendDistance:"@",
                 legendWidth:"@",
+                noGrid:"@",
                 gridWidthX:"@",
                 gridWidthY:"@",
                 gridLineColor:"@",
                 seriesWidth:"@",
                 seriesFillColor:"@",
                 seriesMarker:"@",
+                tickWidth:"@",
+                baseLineX:"@",
+                baseLineY:"@",
                 prefixY:"@",
+                suffixY:"@",
                 colors: "=",
                 labelX:"=",
                 labelY:"=",

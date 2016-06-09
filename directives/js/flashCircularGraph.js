@@ -31,6 +31,10 @@
         if(!scope.suffix){
             scope.suffix="";
         }
+        // ..... prefix will be empty if not defined ....
+        if(!scope.prefix){
+            scope.prefix="";
+        }
 
         // ..... default colors if colors defined ....
         if(!scope.colors){
@@ -39,6 +43,10 @@
         // ..... default colors for gauge Background if gaugeBackgroundColor not defined ....
         if(!scope.gaugeBackgroundColor){
             scope.gaugeBackgroundColor='#354456';
+        }
+        // ..... default font color ....
+        if(!scope.fontColor){
+            scope.fontColor='#6b6b6b';
         }
         // ..... default colors for gauge Background if gaugeBackgroundColor not defined ....
         if(!scope.pieFontSize){
@@ -116,11 +124,12 @@
                         y:solidGuageY,
                         borderWidth: 0,
                         useHTML: true,
-                        color: '#000',
+                        color: scope.fontColor,
                         style: {
-                            fontFamily: 'robotoregular'
+                            fontFamily: 'robotoregular',
+                            fontSize: scope.fontSize+'px'
                         },
-                        format: '<div class="roboLight mainNormal solidGuageLabel" style="text-align: center"><span class="guageVal">{y}'+scope.suffix+'</span><br><span class="smallTitle gaugeName">'+scope.gaugeName+'</span></div>'
+                        format: '<div class="roboLight solidGuageLabel" style="text-align: center"><span class="guageVal">'+scope.prefix +'{y}'+scope.suffix+'</span><br><span class="smallTitle gaugeName">'+scope.gaugeName+'</span></div>'
                     }
                 },
                 pie: {
@@ -133,11 +142,11 @@
                             textShadow: 'none',
                             fontFamily: 'robotoregular',
                             fontWeight: 'normal',
-                            fontSize: scope.pieFontSize+'px',
-                            color: '#6b6b6b'
+                            fontSize: scope.fontSize+'px',
+                            color: scope.fontColor
                         },
                         formatter: function () {
-                            return this.y + scope.suffix + '<br>' + this.key;
+                            return scope.prefix + this.y + scope.suffix + '<br>' + this.key;
                         }
 
                     },
@@ -172,11 +181,13 @@
                 type:"@",  // 'solidgauge, pie'
                 value: "=",
                 suffix: "@",
+                prefix: "@",
                 colors:'=',
                 gaugeName:'@',
                 gaugeBackgroundColor: '@',
                 gaugeCircleColor: '@',
-                pieFontSize: '@'
+                fontSize: '@',
+                fontColor:'@'
 
             }
         }
