@@ -628,7 +628,7 @@
 
     flashSliderUI.directive('flashSliderGraph', function () {
         return {
-            templateUrl: 'directives/templates/flashSliderGraph.html',
+            templateUrl: 'bower_components/flash-nec-apis/directives/templates/flashSliderGraph.html',
             link: link,
             scope: {
                 sliderType: '@',

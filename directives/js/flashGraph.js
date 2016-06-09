@@ -204,7 +204,7 @@
 
     areaGraph.directive('flashGraph', function () {
         return {
-            templateUrl: 'directives/templates/flashGraph.html',
+            templateUrl: 'bower_components/flash-nec-apis/directives/templates/flashGraph.html',
             link: link,
             scope:{
                 type:"@",  //spline,line,areaspline,area,column

@@ -18,29 +18,29 @@ input {
 
 
 .flashSliderMain.calendar .calendarBox{
-    display: inline-block;
-    vertical-align: middle;
+    border-right: 1px solid #1a1e2b;
+    box-sizing: border-box;
     height: 35px;
-    width: 110px;
-    background: #e6e6e6;
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 0;
+    vertical-align: middle;
+    width: 140px;
 }
 .flashSliderMain.calendar .calendarBox input{
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    font-size: 13px;
-    font-family: robotolight;
-    padding: 0 15px;
+    background: url("../images/calendar.png") no-repeat scroll right 12px center / 16px auto;
     box-sizing: border-box;
-    background: #e6e6e6;
+    display: inline-block;
+    font-family: robotolight;
+    font-size: 14px;
+    height: 100%;
+    padding: 0 15px;
+    width: 100%;
 }
 
 
 .flashSliderMain.calendar .flashSliderCont{
-    margin-left: 110px;
+    margin-left: 140px;
     overflow: hidden;
 }
 

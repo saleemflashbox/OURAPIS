@@ -166,7 +166,7 @@
 
     circleGauge.directive('flashCircularGraph', function () {
         return {
-            templateUrl: 'directives/templates/circularGraph.html',
+            templateUrl: 'bower_components/flash-nec-apis/directives/templates/circularGraph.html',
             link: link,
             scope: {
                 type:"@",  // 'solidgauge, pie'

@@ -371,7 +371,7 @@
 
     flashSliderUI.directive('flashSlider', function () {
         return {
-            templateUrl: 'directives/templates/flashSlider.html',
+            templateUrl: 'bower_components/flash-nec-apis/directives/templates/flashSlider.html',
             link: link,
             scope: {
                 type: '@',
