@@ -66,9 +66,11 @@
             }
         }
 
+        if (!scope.additionalFeatures){
+            scope.additionalFeatures={}
+        }
 
-
-        $(element).find(".circularGraph").highcharts({
+        $(element).find(".circularGraph").highcharts(Highcharts.merge(scope.additionalFeatures,{
             chart: {
                 type: scope.type,
                 backgroundColor: 'transparent',
@@ -170,7 +172,7 @@
             credits: {
                 enabled: false
             }
-        });
+        }));
     };
 
     circleGauge.directive('flashCircularGraph', function () {
@@ -187,8 +189,8 @@
                 gaugeBackgroundColor: '@',
                 gaugeCircleColor: '@',
                 fontSize: '@',
-                fontColor:'@'
-
+                fontColor:'@',
+                additionalFeatures: '='    //$scope.additional={subtitle: {text: 'Source: Wikipedia.org'}};
             }
         }
     });

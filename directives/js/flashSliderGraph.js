@@ -124,7 +124,7 @@
                             flashSliderBox.find(".currentTime").animate({
                                 left: (currentHour - 1) * labelWidth
                             }, 300)
-                            .text(currentHour + " : " + currentMinute);
+                                .text(currentHour + " : " + currentMinute);
                         };
 
                         setInterval(function () {
@@ -144,9 +144,9 @@
 
                         //.... add current time on currentTime label ......
                         $('<div class="currentTime">00:00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentTime = function () {
@@ -155,7 +155,7 @@
                             flashSliderBox.find(".currentTime").animate({
                                 left: (currentHour - 1) * labelWidth
                             }, 300)
-                            .text(currentHour);
+                                .text(currentHour);
 
                             console.log(labelWidth)
                         };
@@ -198,39 +198,39 @@
                         flashSliderBox.find(".rangeSelector").animate({
                             left: (currentHour - 1) * labelWidth
                         }, 300)
-                        .resizable({
-                            containment: "parent",
-                            grid: [labelWidth, 0],
-                            handles: "e, w",
-                            resize: function (event, ui) {
-                                startElement = (Math.round($(this).position().left / labelWidth));
-                                endElement = (Math.round(startElement + ($(this).width() / labelWidth)));
+                            .resizable({
+                                containment: "parent",
+                                grid: [labelWidth, 0],
+                                handles: "e, w",
+                                resize: function (event, ui) {
+                                    startElement = (Math.round($(this).position().left / labelWidth));
+                                    endElement = (Math.round(startElement + ($(this).width() / labelWidth)));
 
-                                //.... highlight range.......
-                                label.removeClass("selected");
-                                for (var i = startElement; i < endElement; i++) {
-                                    label.eq(i).addClass("selected");
+                                    //.... highlight range.......
+                                    label.removeClass("selected");
+                                    for (var i = startElement; i < endElement; i++) {
+                                        label.eq(i).addClass("selected");
+                                    }
+
+
+                                    var chart=$(element).find(".flashGraph").highcharts();
+
+                                    chart.xAxis[0].removePlotBand('selectedArea');
+                                    chart.xAxis[0].addPlotBand({
+                                        from: startElement+0.5,
+                                        to: endElement+0.5,
+                                        color: scope.plotBandColor,
+                                        id: 'selectedArea'
+                                    });
+
+                                },
+                                stop: function (event, ui) {
+
+                                    if (scope.callbackOnRangeSelection()) {
+                                        scope.callbackOnRangeSelection()(startElement + 1, endElement)
+                                    }
                                 }
-
-
-                                var chart=$(element).find(".flashGraph").highcharts();
-
-                                chart.xAxis[0].removePlotBand('selectedArea');
-                                chart.xAxis[0].addPlotBand({
-                                    from: startElement+0.5,
-                                    to: endElement+0.5,
-                                    color: scope.plotBandColor,
-                                    id: 'selectedArea'
-                                });
-
-                            },
-                            stop: function (event, ui) {
-
-                                if (scope.callbackOnRangeSelection()) {
-                                    scope.callbackOnRangeSelection()(startElement + 1, endElement)
-                                }
-                            }
-                        });
+                            });
 
                         label.eq(currentHour - 1).addClass("selected");
                     }
@@ -243,16 +243,16 @@
 
                         //.... add current time on currentTime label ......
                         $('<div class="currentDate">00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentDate = function () {
                             flashSliderBox.find(".currentDate").animate({
                                 left: (currentDay - 1) * labelWidth
                             }, 300)
-                            .text(currentDay);
+                                .text(currentDay);
                         };
                         addCurrentDate();
                     }
@@ -266,16 +266,16 @@
 
                         //.... add current time on currentTime label ......
                         $('<div class="currentTime">00:00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentTime = function () {
                             flashSliderBox.find(".currentTime").animate({
                                 left: (currentDay - 1) * labelWidth
                             }, 300)
-                            .text(currentDay);
+                                .text(currentDay);
                         };
                         addCurrentTime();
 
@@ -301,47 +301,47 @@
 
                         //.... add current time on currentTime label ......
                         $('<div class="rangeSelector"></div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... resize bar added and current label selected......
                         var startElement, endElement;
                         flashSliderBox.find(".rangeSelector").animate({
                             left: (currentDay - 1) * labelWidth
                         }, 300)
-                        .resizable({
-                            containment: "parent",
-                            grid: [labelWidth, 0],
-                            handles: "e, w",
-                            resize: function (event, ui) {
-                                startElement = (Math.round($(this).position().left / labelWidth));
-                                endElement = (Math.round(startElement + ($(this).width() / labelWidth)));
+                            .resizable({
+                                containment: "parent",
+                                grid: [labelWidth, 0],
+                                handles: "e, w",
+                                resize: function (event, ui) {
+                                    startElement = (Math.round($(this).position().left / labelWidth));
+                                    endElement = (Math.round(startElement + ($(this).width() / labelWidth)));
 
-                                //.... highlight range.......
-                                label.removeClass("selected");
-                                for (var i = startElement; i < endElement; i++) {
-                                    label.eq(i).addClass("selected");
+                                    //.... highlight range.......
+                                    label.removeClass("selected");
+                                    for (var i = startElement; i < endElement; i++) {
+                                        label.eq(i).addClass("selected");
+                                    }
+
+
+                                    var chart=$(element).find(".flashGraph").highcharts();
+
+                                    chart.xAxis[0].removePlotBand('selectedArea');
+                                    chart.xAxis[0].addPlotBand({
+                                        from: startElement+0.5,
+                                        to: endElement+0.5,
+                                        color: scope.plotBandColor,
+                                        id: 'selectedArea'
+                                    });
+                                },
+                                stop: function (event, ui) {
+
+                                    if (scope.callbackOnRangeSelection()) {
+                                        scope.callbackOnRangeSelection()(startElement + 1, endElement)
+                                    }
                                 }
-
-
-                                var chart=$(element).find(".flashGraph").highcharts();
-
-                                chart.xAxis[0].removePlotBand('selectedArea');
-                                chart.xAxis[0].addPlotBand({
-                                    from: startElement+0.5,
-                                    to: endElement+0.5,
-                                    color: scope.plotBandColor,
-                                    id: 'selectedArea'
-                                });
-                            },
-                            stop: function (event, ui) {
-
-                                if (scope.callbackOnRangeSelection()) {
-                                    scope.callbackOnRangeSelection()(startElement + 1, endElement)
-                                }
-                            }
-                        });
+                            });
 
                         label.eq(currentDay - 1).addClass("selected");
                     }
@@ -476,34 +476,36 @@
             scope.marginBottom=0;
         }
         else {
-            if(!scope.marginLeft){
+            if(scope.labelY && !scope.marginLeft){
                 scope.marginLeft=60;
+            }
+            if(!scope.labelY && !scope.marginLeft){
+                scope.labelY=false;
+                scope.marginLeft=10;
             }
             if(!scope.marginRight){
                 scope.marginRight=15;
             }
-            if(!scope.marginTop){
+            if(scope.legend && !scope.marginTop){
                 scope.marginTop=60;
             }
-            if(!scope.marginBottom){
-                scope.marginBottom=30;
-            }
-
-            if(!scope.legend){
+            if(!scope.legend && !scope.marginTop){
                 scope.marginTop=20;
             }
-            if(!scope.labelX){
+            if(scope.labelX && !scope.marginBottom){
+                scope.marginBottom=30;
+            }
+            if(!scope.labelX && !scope.marginBottom){
                 scope.labelX=false;
                 scope.marginBottom=10;
             }
-            if(!scope.labelY){
-                scope.labelY=false;
-                scope.marginLeft=10;
-            }
         }
 
+        if (!scope.additionalFeatures){
+            scope.additionalFeatures={}
+        }
 
-        $(element).find(".flashGraph").highcharts({
+        $(element).find(".flashGraph").highcharts(Highcharts.merge(scope.additionalFeatures,{
             chart: {
                 type: scope.graphType,
                 backgroundColor: 'transparent',
@@ -638,7 +640,7 @@
             },
             series: scope.y,
             colors: scope.colors
-        });
+        }));
 
     };
 
@@ -690,7 +692,8 @@
                 marginTop:"@",
                 marginBottom:"@",
                 noMargin:"@",
-                plotBandColor:"@"
+                plotBandColor:"@",
+                additionalFeatures: '='    //$scope.additional={subtitle: {text: 'Source: Wikipedia.org'}};
             }
         }
     });

@@ -61,6 +61,7 @@
         }
 
         // ..... Adjust the margin of the graph .....
+
         if(scope.noMargin){
             scope.marginLeft=0;
             scope.marginRight=0;
@@ -68,34 +69,38 @@
             scope.marginBottom=0;
         }
         else {
-            if(!scope.marginLeft){
+            if(scope.labelY && !scope.marginLeft){
                 scope.marginLeft=60;
+            }
+            if(!scope.labelY && !scope.marginLeft){
+                scope.labelY=false;
+                scope.marginLeft=10;
             }
             if(!scope.marginRight){
                 scope.marginRight=15;
             }
-            if(!scope.marginTop){
+            if(scope.legend && !scope.marginTop){
                 scope.marginTop=60;
             }
-            if(!scope.marginBottom){
-                scope.marginBottom=30;
-            }
-
-            if(!scope.legend){
+            if(!scope.legend && !scope.marginTop){
                 scope.marginTop=20;
             }
-            if(!scope.labelX){
+            if(scope.labelX && !scope.marginBottom){
+                scope.marginBottom=30;
+            }
+            if(!scope.labelX && !scope.marginBottom){
                 scope.labelX=false;
                 scope.marginBottom=10;
             }
-            if(!scope.labelY){
-                scope.labelY=false;
-                scope.marginLeft=10;
-            }
+        }
+
+        // ..... if no additional feature is added then it will be empty ....
+        if (!scope.additionalFeatures){
+            scope.additionalFeatures={}
         }
 
 
-        $(element).find(".flashGraph").highcharts({
+        $(element).find(".flashGraph").highcharts(Highcharts.merge(scope.additionalFeatures,{
             chart: {
                 type: scope.type,
                 backgroundColor: 'transparent',
@@ -210,7 +215,7 @@
             },
             series: scope.y,
             colors: scope.colors
-        });
+        }));
 
     };
 
@@ -255,7 +260,8 @@
                 marginRight:"@",
                 marginTop:"@",
                 marginBottom:"@",
-                noMargin:"@"
+                noMargin:"@",
+                additionalFeatures: '='    //$scope.additional={subtitle: {text: 'Source: Wikipedia.org'}};
             }
         }
     });
