@@ -464,6 +464,12 @@
         if(!scope.fontFamily){
             scope.fontFamily='robotoregular';
         }
+        if(!scope.titleX){
+            scope.titleX='';
+        }
+        if(!scope.titleY){
+            scope.titleY='';
+        }
         if(!scope.plotBandColor){
             scope.plotBandColor="#f6f6f6";
         }
@@ -540,7 +546,7 @@
             xAxis: {
                 categories: scope.x,
                 title: {
-                    text: '',
+                    text: scope.titleY,
                     align: 'high'
                 },
                 //lineWidth:0,
@@ -569,7 +575,7 @@
             },
             yAxis: {
                 title: {
-                    text: '',
+                    text: scope.titleY,
                     align: 'low'
                 },
                 gridLineWidth: scope.gridWidthY,
@@ -681,6 +687,8 @@
                 colors: "=",
                 labelX:"=",
                 labelY:"=",
+                titleX:"@",
+                titleY:"@",
                 labelColor:"@",
                 labelSize:"@",
                 fontFamily:"@",
