@@ -596,10 +596,6 @@
                 lineColor: scope.gridLineColor,
                 lineWidth: scope.baseLineY
             },
-            tooltip: {
-                shared: true,
-                useHTML: true
-            },
             credits: {
                 enabled: false
             },
