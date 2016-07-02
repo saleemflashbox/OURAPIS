@@ -8,7 +8,7 @@ input {
 }
 .flashSliderMain{
     overflow: hidden;
-    height: 35px;
+    height: 40px;
     position: relative;
 }
 
@@ -20,7 +20,7 @@ input {
 .flashSliderMain.calendar .calendarBox{
     border-right: 1px solid #1a1e2b;
     box-sizing: border-box;
-    height: 35px;
+    height: 100%;
     left: 0;
     position: absolute;
     top: 0;
@@ -28,7 +28,7 @@ input {
     width: 140px;
 }
 .flashSliderMain.calendar .calendarBox input{
-    background: url("../images/calendar.png") no-repeat scroll right 12px center / 16px auto;
+    background: url("../images/calendar.png") no-repeat scroll right 12px center / 16px auto #686868;
     box-sizing: border-box;
     display: inline-block;
     font-family: robotolight;
@@ -36,6 +36,7 @@ input {
     height: 100%;
     padding: 0 15px;
     width: 100%;
+    color: #ffffff;
 }
 
 
@@ -48,7 +49,7 @@ input {
 .flashSliderMain.navigation .flashSliderCont .nav{
     position: absolute;
     height: 100%;
-    width: 30px;
+    width: 40px;
     top: 0;
     cursor: pointer;
 }
@@ -68,7 +69,7 @@ input {
     position: relative;
 }
 .flashSliderMain.navigation .flashSliderBox{
-    margin: 0 30px;
+    margin: 0 40px;
     overflow: hidden;
 }
 
@@ -80,7 +81,7 @@ input {
     float: left;
     width: 70px;
     text-align: center;
-    line-height: 35px;
+    line-height: 40px;
     font-size: 14px;
 }
 .flashSliderLabels .label.selected{
@@ -96,10 +97,10 @@ input {
     position: absolute;
     top: 0;
     left: 0;
-    line-height: 35px;
+    line-height: 40px;
     text-align: center;
     width: 70px;
-    background: #ef9955;
+    background: #e06625;
     color: #ffffff;
 }
 
@@ -111,7 +112,7 @@ input {
     height: 100%;
 }
 .flashSliderLabels .rangeSelector .ui-resizable-handle{
-    background: #ef9955;
+    background: #e06625;
     width: 3px;
     cursor: pointer;
 }
@@ -193,7 +194,7 @@ input {
 #ui-datepicker-div .ui-datepicker-header {
     border-radius: 0;
     padding: 10px 7.5%;
-    background: #ef9955;
+    background: #e06625;
     border: none;
     font-family: robotolight;
     font-size: 16px;
@@ -247,7 +248,7 @@ input {
 }
 .ui-datepicker td .ui-state-highlight,
 .ui-datepicker td .ui-state-highlight.ui-state-active{
-    background: #ef9955;
+    background: #e06625;
 }
 .ui-datepicker td .ui-state-active{
     background: rgba(116, 133, 176, 0.71);

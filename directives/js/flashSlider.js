@@ -84,7 +84,7 @@
                 else {
                     flashSliderLabels.animate({
                         left: -(flashSliderLabelsWidth - flashSliderBoxWidth)
-                    })
+                    });
                 }
             },
             construct: function () {
@@ -99,10 +99,10 @@
                         this.addTimeLabels();
 
                         //.... add current time on currentTime label ......
-                        $('<div class="currentTime">00:00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                        $('<div class="currentTime"><div class="num">00</div></div>').appendTo(flashSliderLabels)
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentTime = function () {
@@ -112,7 +112,7 @@
                             flashSliderBox.find(".currentTime").animate({
                                 left: (currentHour - 1) * labelWidth
                             }, 300)
-                            .text(currentHour + " : " + currentMinute);
+                                .find(".num").text(currentHour + " : " + currentMinute);
                         };
 
                         setInterval(function () {
@@ -130,10 +130,10 @@
                         this.addTimeLabels();
 
                         //.... add current time on currentTime label ......
-                        $('<div class="currentTime">00:00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                        $('<div class="currentTime"><div class="num">00</div></div>').appendTo(flashSliderLabels)
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentTime = function () {
@@ -142,7 +142,7 @@
                             flashSliderBox.find(".currentTime").animate({
                                 left: (currentHour - 1) * labelWidth
                             }, 300)
-                            .text(currentHour);
+                                .find(".num").text(currentHour);
                         };
                         addCurrentTime();
 
@@ -151,8 +151,8 @@
                         $("body").on("click", ".selectTimeSlider .label", function () {
                             var labelIndex = $(this).index();
                             $(this).parent().find(".currentTime").animate({
-                                    left: (labelIndex) * labelWidth
-                                }, 150).text(labelIndex + 1);
+                                left: (labelIndex) * labelWidth
+                            }, 150).find(".num").text(labelIndex + 1);
 
                             if (scope.callbackOnSelection()) {
                                 scope.callbackOnSelection()(labelIndex + 1)
@@ -171,36 +171,36 @@
 
                         //.... add current time on currentTime label ......
                         $('<div class="rangeSelector"></div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... resize bar added and current label selected......
                         var startElement, endElement;
                         flashSliderBox.find(".rangeSelector").animate({
                             left: (currentHour - 1) * labelWidth
                         }, 300)
-                        .resizable({
-                            containment: "parent",
-                            grid: [labelWidth, 0],
-                            handles: "e, w",
-                            resize: function (event, ui) {
-                                startElement = ($(this).position().left / labelWidth);
-                                endElement = (startElement + ($(this).width() / labelWidth));
+                            .resizable({
+                                containment: "parent",
+                                grid: [labelWidth, 0],
+                                handles: "e, w",
+                                resize: function (event, ui) {
+                                    startElement = ($(this).position().left / labelWidth);
+                                    endElement = (startElement + ($(this).width() / labelWidth));
 
-                                //.... highlight range.......
-                                label.removeClass("selected");
-                                for (var i = startElement; i < endElement; i++) {
-                                    label.eq(i).addClass("selected");
-                                }
-                            },
-                            stop: function (event, ui) {
+                                    //.... highlight range.......
+                                    label.removeClass("selected");
+                                    for (var i = startElement; i < endElement; i++) {
+                                        label.eq(i).addClass("selected");
+                                    }
+                                },
+                                stop: function (event, ui) {
 
-                                if (scope.callbackOnRangeSelection()) {
-                                    scope.callbackOnRangeSelection()(startElement + 1, endElement)
+                                    if (scope.callbackOnRangeSelection()) {
+                                        scope.callbackOnRangeSelection()(startElement + 1, endElement)
+                                    }
                                 }
-                            }
-                        });
+                            });
 
                         label.eq(currentHour - 1).addClass("selected");
                     }
@@ -212,17 +212,17 @@
                         this.addDateLabels();
 
                         //.... add current time on currentTime label ......
-                        $('<div class="currentDate">00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                        $('<div class="currentDate"><div class="num">00</div></div>').appendTo(flashSliderLabels)
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentDate = function () {
                             flashSliderBox.find(".currentDate").animate({
                                 left: (currentDay - 1) * labelWidth
                             }, 300)
-                            .text(currentDay);
+                                .find(".num").text(currentDay);
                         };
                         addCurrentDate();
                     }
@@ -235,17 +235,17 @@
                         this.addDateLabels();
 
                         //.... add current time on currentTime label ......
-                        $('<div class="currentTime">00:00</div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                        $('<div class="currentTime"><div class="num">00</div></div>').appendTo(flashSliderLabels)
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... displaying current time......
                         var addCurrentTime = function () {
                             flashSliderBox.find(".currentTime").animate({
                                 left: (currentDay - 1) * labelWidth
                             }, 300)
-                            .text(currentDay);
+                                .find(".num").text(currentDay);
                         };
                         addCurrentTime();
 
@@ -254,7 +254,7 @@
                             var labelIndex = $(this).index();
                             $(this).parent().find(".currentTime").animate({
                                 left: (labelIndex) * labelWidth
-                            }, 150).text(labelIndex + 1);
+                            }, 150).find(".num").text(labelIndex + 1);
                             if (scope.callbackOnSelection()) {
                                 scope.callbackOnSelection()(labelIndex + 1)
                             }
@@ -271,36 +271,36 @@
 
                         //.... add current time on currentTime label ......
                         $('<div class="rangeSelector"></div>').appendTo(flashSliderLabels)
-                        .css({
-                            width: labelWidth
-                        });
+                            .css({
+                                width: labelWidth
+                            });
 
                         //..... resize bar added and current label selected......
                         var startElement, endElement;
                         flashSliderBox.find(".rangeSelector").animate({
                             left: (currentDay - 1) * labelWidth
                         }, 300)
-                        .resizable({
-                            containment: "parent",
-                            grid: [labelWidth, 0],
-                            handles: "e, w",
-                            resize: function (event, ui) {
-                                startElement = ($(this).position().left / labelWidth);
-                                endElement = (startElement + ($(this).width() / labelWidth));
+                            .resizable({
+                                containment: "parent",
+                                grid: [labelWidth, 0],
+                                handles: "e, w",
+                                resize: function (event, ui) {
+                                    startElement = ($(this).position().left / labelWidth);
+                                    endElement = (startElement + ($(this).width() / labelWidth));
 
-                                //.... highlight range.......
-                                label.removeClass("selected");
-                                for (var i = startElement; i < endElement; i++) {
-                                    label.eq(i).addClass("selected");
-                                }
-                            },
-                            stop: function (event, ui) {
+                                    //.... highlight range.......
+                                    label.removeClass("selected");
+                                    for (var i = startElement; i < endElement; i++) {
+                                        label.eq(i).addClass("selected");
+                                    }
+                                },
+                                stop: function (event, ui) {
 
-                                if (scope.callbackOnRangeSelection()) {
-                                    scope.callbackOnRangeSelection()(startElement + 1, endElement)
+                                    if (scope.callbackOnRangeSelection()) {
+                                        scope.callbackOnRangeSelection()(startElement + 1, endElement)
+                                    }
                                 }
-                            }
-                        });
+                            });
 
                         label.eq(currentDay - 1).addClass("selected");
                     }
@@ -358,9 +358,9 @@
                 }
             },
             init: function () {
+                flashSliderFun.addAttributes();
                 flashSliderFun.construct();
                 flashSliderFun.dragSlider();
-                flashSliderFun.addAttributes();
             }
         };
 
